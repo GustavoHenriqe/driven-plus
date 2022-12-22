@@ -1,4 +1,4 @@
-import { MainStyled, FormStyled } from "./styledHome"
+import { MainStyled, FormStyled } from "./styledLogin"
 import Drivenlogo from "../../assets/drivenplus_logo.png"
 
 import { Link } from "react-router-dom"
