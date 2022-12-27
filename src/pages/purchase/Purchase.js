@@ -1,7 +1,8 @@
-
+import { MainStyled } from "./styledPurchase"
+import Pointer from "../../assets/seat.png"
 
 import { useContext, useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 import axios from "axios"
 import ApiServer from "../../api/API"
@@ -26,7 +27,19 @@ function Purchase() {
 
     return (
         <>
-
+            <MainStyled colorTitle={color => { if(_planeObject.id == 2){ return "#FFF16F" }else if (_planeObject.id == 3){ return "#56D59F"}
+            }}>
+                <header>
+                    <Link to="/subscriptions">
+                        <img src={Pointer}></img>
+                    </Link>
+                    <img src={_planeObject.image}></img>
+                    <h1>{_planeObject.name}</h1>
+                </header>
+                <main>
+                    
+                </main>
+            </MainStyled>
         </>
     )
 }
