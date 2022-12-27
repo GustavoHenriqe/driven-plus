@@ -12,7 +12,7 @@ function Register() {
     const [_password, setPassword] = useState("")
     const navigate = useNavigate()
 
-    function catchInfos(element) {
+    function catchInfosRegister(element) {
         if (element.target.id == "name") {
             setName(element.target.value)
         }
@@ -43,7 +43,7 @@ function Register() {
             }
         )
         _sendRequest.catch(
-            error => alert(error.message)
+            error => alert(error.response.data.message)
         )
 
         event.preventDefault()
@@ -53,33 +53,24 @@ function Register() {
         <> 
             <MainStyledRegister>
                 <FormStyled onSubmit={sendRegister} >
-                    <input 
-                    type="text" id="name" 
-                    value={_name}
-                    onChange={catchInfos}  
+                    <input type="text" id="name" value={_name} 
+                    onChange={catchInfosRegister}  
                     className="style-button" 
                     placeholder="Nome" required
                     />
-                    <input 
-                    type="text" id="cpf"
-                    value={_cpf}
-                    onChange={catchInfos} 
+                    <input type="text" id="cpf" value={_cpf}
+                    onChange={catchInfosRegister} 
                     className="style-button" 
                     placeholder="CPF" required
                     maxLength={11}
                     />
-                    <input 
-                    type="email" id="email"
-                    value={_email}
-                    onChange={catchInfos}  
+                    <input type="email" id="email" value={_email}
+                    onChange={catchInfosRegister}  
                     className="style-button" 
                     placeholder="E-mail" required
                     />
-                    <input 
-                    type="password"
-                    value={_password}
-                    onChange={catchInfos}  
-                    id="password" 
+                    <input type="password" id="password" value={_password}
+                    onChange={catchInfosRegister}  
                     className="style-button" 
                     placeholder="Senha"
                     required
