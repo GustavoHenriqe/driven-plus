@@ -12,7 +12,7 @@ function Home() {
     const [_email, setEmail] = useState("")
     const [_password, setPassword] = useState("")
     const navigate = useNavigate()
-    const { setToken } = useContext(contextToken)
+    const { setPersistenceToken } = useContext(contextToken)
 
     function catchInfoLogin(element) {
         if (element.target.id == "email"){
@@ -37,9 +37,7 @@ function Home() {
     }
 
     function sucessLogin(response) {
-        const _objectResponseInString = JSON.stringify(response)
-        localStorage.setItem("objectUserLoged", _objectResponseInString)
-        setToken(response.token)
+        setPersistenceToken(response.token)
 
         if(response.membership == null){
             navigate("/subscriptions")
@@ -67,7 +65,7 @@ function Home() {
                     type="password" placeholder="Senha" 
                     onChange={catchInfoLogin} required 
                     />
-                    <button type="submit" className="style-button" >Entrar</button>
+                    <button type="submit" className="style-button" >ENTRAR</button>
                 </FormStyled>
                 <footer>
                     <Link to="/register">Não possuí uma conta? Cadastre-se</Link>

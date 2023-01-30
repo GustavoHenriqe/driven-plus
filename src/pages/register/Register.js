@@ -1,7 +1,7 @@
 import { MainStyledRegister, FormStyled } from "./styledRegister"
 import API from "../../api/API"
 
-import { Link, useNavigate, useRoutes } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
 
@@ -10,6 +10,7 @@ function Register() {
     const [_email, setEmail] = useState("")
     const [_cpf, setCpf] = useState("")
     const [_password, setPassword] = useState("")
+    
     const navigate = useNavigate()
 
     function catchInfosRegister(element) {
@@ -76,7 +77,7 @@ function Register() {
                     required
                     />
                     <button type="submit" className="style-button">
-                        Cadastrar
+                        CADASTRAR
                     </button>
                 </FormStyled>
                 <footer>
